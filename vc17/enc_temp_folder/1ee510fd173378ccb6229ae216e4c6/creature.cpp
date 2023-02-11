@@ -256,9 +256,9 @@ void Creature::drawInformation(const MapPosInfo& mapRect, const Point& dest, boo
     g_drawPool.select(DrawPoolType::CREATURE_INFORMATION);
     {
         if (drawFlags & Otc::DrawBars) {
-
             g_drawPool.addFilledRect(backgroundRect, Color::black);
             g_drawPool.addFilledRect(healthRect, fillColor);
+
         }
 
         if (drawFlags & Otc::DrawManaBar && isLocalPlayer()) {

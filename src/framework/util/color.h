@@ -107,6 +107,30 @@ public:
         return c;
     }
 
+    static Color playerAlignment(int color) {
+        switch (color) {
+
+            case 13:
+                return Color(255, 0, 0);
+            case 12:
+                return Color(229, 57, 53);
+            case 11:
+                return Color(255, 153, 153);
+            case 0:
+                return Color(120, 120, 120);
+            case 1:
+                return Color(153, 204, 255);
+            case 2:
+                return Color(51, 153, 255);
+            case 3:
+                return Color(0, 0, 255);
+            case 100:
+                return Color(255, 255, 255);
+            default:
+                return Color(120, 120, 120);
+        }
+    }
+
     static Color from8bit(const int color, const float brightness = 1.0f)
     {
         if (color >= 216 || color <= 0)

@@ -2578,8 +2578,8 @@ CreaturePtr ProtocolGame::getCreature(const InputMessagePtr& msg, int type) cons
             else
                 creatureType = Proto::CreatureTypeNpc;
 
-            int nameColour = msg->getU32();
-            int nameAccess = msg->getU32();
+            uint32_t nameColour = msg->getU32();
+            uint32_t nameAccess = msg->getU32();
 
             uint32_t masterId = 0;
             if (g_game.getClientVersion() >= 1281 && creatureType == Proto::CreatureTypeSummonOwn) {
@@ -2620,8 +2620,9 @@ CreaturePtr ProtocolGame::getCreature(const InputMessagePtr& msg, int type) cons
                 creature->setId(id);
                 creature->setName(name);
                 creature->setMasterId(masterId);
-                //creature->setNameAccess(nameAccess);
-                //creature->setNameColour(nameColour);
+
+                creature->setNameAccess(nameAccess);
+                creature->setNameColour(nameColour);
                 g_map.addCreature(creature);
             }
         }

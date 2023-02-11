@@ -375,14 +375,14 @@ void LocalPlayer::setEnergy(uint32_t energy, uint32_t maxEnergy)
     }
 }
 
-void LocalPlayer::setNameColour(uint32_t nameColour)
+void LocalPlayer::setNameColour(uint32_t x)
 {
-    m_nameColour = nameColour;
+    m_nameColour = x;
 }
 
-void LocalPlayer::setAccess(uint32_t access)
+void LocalPlayer::setAccess(uint32_t x)
 {
-    m_access = access;
+    m_access = x;
 
 }
 

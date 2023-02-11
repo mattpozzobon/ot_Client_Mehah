@@ -61,6 +61,9 @@ public:
     void setId(uint32_t id) override { m_id = id; }
     void setMasterId(uint32_t id) { m_masterId = id; }
     void setName(const std::string_view name) { m_name.setText(name); }
+
+    void setNameColour(uint32_t n) { m_name.setNameColour(n); }
+    void setNameAccess(uint32_t n) { m_name.setNameAccess(n); }
     void setHealthPercent(uint8_t healthPercent);
     void setDirection(Otc::Direction direction);
     void setOutfit(const Outfit& outfit);

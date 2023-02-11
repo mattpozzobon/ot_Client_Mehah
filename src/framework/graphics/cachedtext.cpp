@@ -82,3 +82,19 @@ void CachedText::setAlign(const Fw::AlignmentFlag align)
     m_align = align;
     update();
 }
+void CachedText::setNameColour(uint32_t n)
+{
+    if (m_creaturenamecolour == n)
+        return;
+
+    m_creaturenamecolour = n;
+    update();
+}
+void CachedText::setNameAccess(uint32_t n)
+{
+    if (m_creatureaccess == n)
+        return;
+
+    m_creatureaccess = n;
+    update();
+}

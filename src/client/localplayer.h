@@ -191,6 +191,6 @@ private:
 
     uint32_t m_energy{ 0 };
     uint32_t m_maxEnergy{ 0 };
-    uint16_t m_nameColour{ 0 };
-    uint16_t m_access{ 0 };
+    uint32_t m_nameColour{ 0 };
+    uint32_t m_access{ 0 };
 };

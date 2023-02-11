@@ -36,10 +36,15 @@ public:
     void setText(const std::string_view text);
     void setAlign(const Fw::AlignmentFlag align);
 
+    void setNameColour(uint32_t n);
+    void setNameAccess(uint32_t n);
+
     Size getTextSize() const { return m_textSize; }
     std::string getText() const { return m_text; }
     BitmapFontPtr getFont() const { return m_font; }
     Fw::AlignmentFlag getAlign() const { return m_align; }
+    uint32_t getCreatureNameColour() { return m_creaturenamecolour; }
+    uint32_t getCreatureAccess() { return m_creatureaccess; }
 
 private:
     void update();
@@ -48,6 +53,8 @@ private:
     std::vector<Point> m_glyphsPositions;
 
     std::string m_text;
+    uint32_t m_creatureaccess;
+    uint32_t m_creaturenamecolour;
     Size m_textSize;
     Rect m_textScreenCoords;
     BitmapFontPtr m_font;

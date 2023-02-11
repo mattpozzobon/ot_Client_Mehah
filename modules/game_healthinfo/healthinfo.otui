@@ -35,14 +35,16 @@ ExperienceBar < ProgressBar
 
 ConditionWidget < UIWidget
   size: 18 18
+
   $!first:
-    margin-left: 10
+    margin-left: 2
 
 MiniWindow
   icon: /images/topbuttons/healthinfo
   id: healthInfoWindow
   !text: tr('Health Info')
-  height: 125
+  height: 123
+  @onOpen: modules.game_healthinfo.onMiniWindowOpen()
   @onClose: modules.game_healthinfo.onMiniWindowClose()
   &save: true
 
