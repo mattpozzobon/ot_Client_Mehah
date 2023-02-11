@@ -50,6 +50,7 @@ public:
     void setDrawLights(bool enable) { m_mapView->setDrawLights(enable); }
     void setLimitVisibleDimension(bool enable) { m_mapView->setLimitVisibleDimension(enable); updateVisibleDimension(); }
     void setDrawManaBar(bool enable) { m_mapView->setDrawManaBar(enable); }
+    void setDrawEnergyBar(bool enable) { m_mapView->setDrawEnergyBar(enable); }
     void setKeepAspectRatio(bool enable);
     void setMapShader(const std::string_view name, float fadein, float fadeout) { m_mapView->setShader(name, fadein, fadeout); }
     void setMinimumAmbientLight(float intensity) { m_mapView->setMinimumAmbientLight(intensity); }
@@ -64,6 +65,7 @@ public:
     bool isDrawingLights() { return m_mapView->isDrawingLights(); }
     bool isLimitedVisibleDimension() { return m_mapView->isLimitedVisibleDimension(); }
     bool isDrawingManaBar() { return m_mapView->isDrawingManaBar(); }
+    bool isDrawingEnergyBar() { return m_mapView->isDrawingEnergyBar(); }
     bool isKeepAspectRatioEnabled() { return m_keepAspectRatio; }
     bool isLimitVisibleRangeEnabled() { return m_limitVisibleRange; }
 

@@ -44,6 +44,9 @@ public:
     void setExperience(uint64_t experience);
     void setLevel(uint16_t level, uint8_t levelPercent);
     void setMana(uint32_t mana, uint32_t maxMana);
+    void setEnergy(uint32_t energy, uint32_t maxEnergy);
+    void setNameColour(uint32_t nameColour);
+    void setAccess(uint32_t access);
     void setMagicLevel(uint8_t magicLevel, uint8_t magicLevelPercent);
     void setBaseMagicLevel(uint8_t baseMagicLevel);
     void setSoul(uint8_t soul);
@@ -81,9 +84,13 @@ public:
     uint32_t getStates() { return m_states; }
     uint32_t getMana() { return m_mana; }
     uint32_t getMaxMana() { return m_maxMana; }
+    uint32_t getEnergy() { return m_energy; }
+    uint32_t getMaxEnergy() { return m_maxEnergy; }
     uint32_t getHealth() { return m_health; }
     uint32_t getMaxHealth() { return m_maxHealth; }
     uint64_t getExperience() { return m_experience; }
+    uint32_t getNameColour() { return m_nameColour; }
+    uint32_t getAccess() { return m_access; }
 
     const std::vector<uint8_t>& getSpells() { return m_spells; }
     ItemPtr getInventoryItem(Otc::InventorySlot inventory) { return m_inventoryItems[inventory]; }
@@ -181,4 +188,9 @@ private:
     uint16_t m_stamina{ 0 };
     uint16_t m_regenerationTime{ 0 };
     uint16_t m_offlineTrainingTime{ 0 };
+
+    uint32_t m_energy{ 0 };
+    uint32_t m_maxEnergy{ 0 };
+    uint16_t m_nameColour{ 0 };
+    uint16_t m_access{ 0 };
 };

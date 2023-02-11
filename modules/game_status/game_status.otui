@@ -1,0 +1,598 @@
+Window
+  id: Window
+  !text: tr('Status Page')
+  size: 480 600
+  anchors.centerIn: parent
+  padding-left: 10
+  padding-right: 10
+  margin: 10
+
+  @onEscape: modules.game_status.toggle()
+
+  Label
+    id: total_points
+    !text: tr('Points')
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    size: 50 0
+
+  Label
+    id: total_points_label
+    anchors.left: total_points.right
+    anchors.bottom: parent.bottom
+    size: 25 0
+
+  Label
+    id: total_points_label_remove
+    anchors.left: total_points_label.right
+    anchors.bottom: parent.bottom
+    visible: false
+    size: 25 0
+
+  Button  
+    id: cancel
+    !text: tr('Cancel')
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    size: 60 20
+    @onClick: modules.game_status.cancel()
+
+  Button  
+    id: confirm
+    !text: tr('Confirm')
+    anchors.right: cancel.left
+    anchors.bottom: parent.bottom
+    size: 60 20
+    @onClick: modules.game_status.confirm()
+
+  FlatPanel 
+    id: top
+    anchors.top: parent.top
+    anchors.left: parent.left
+    height: 150
+    padding: 10
+    width: 150
+
+    Label
+      id: health_label
+      !text: tr('Health')
+      anchors.top: parent.top
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: health_value
+      !text: tr('0')
+      anchors.left: health_label.right
+      anchors.top: parent.top
+      margin-left: 10
+
+    Label
+      id: health_add
+      !text: tr('0')
+      anchors.left: health_value.right
+      anchors.top: parent.top
+      margin-left: 10
+      size: 50 20
+
+    Label
+      id: mana_label
+      !text: tr('Mana')
+      anchors.top: health_label.bottom
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: mana_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+
+    Label
+      id: mana_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 50 20
+
+    Label
+      id: energy_label
+      !text: tr('Energy')
+      anchors.top: mana_label.bottom
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: energy_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+
+    Label
+      id: energy_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 50 20
+
+    Label
+      id: speed_label
+      !text: tr('Speed')
+      anchors.top: energy_label.bottom
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: speed_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+
+    Label
+      id: speed_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 50 20
+
+    Label
+      id: capacity_label
+      !text: tr('Capacity')
+      anchors.top: speed_label.bottom
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: capacity_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+
+    Label
+      id: capacity_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 50 20
+
+  FlatPanel 
+    id: top_middle
+    anchors.top: parent.top
+    anchors.left: top.right
+    height: 150
+    width: 150
+    padding: 10
+    margin-left: 5
+
+    Label
+      id: pdamage_label
+      !text: tr('P. Damage')
+      anchors.top: parent.top
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: pdamage_value
+      !text: tr('0')
+      anchors.left: pdamage_label.right
+      anchors.top: parent.top
+      margin-left: 10
+
+    Label
+      id: pdamage_add
+      !text: tr('0')
+      anchors.left: pdamage_value.right
+      anchors.top: parent.top
+      margin-left: 10
+      size: 50 20
+
+    Label
+      id: mdamage_label
+      !text: tr('M. Damage')
+      anchors.top: pdamage_label.bottom
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: mdamage_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+
+    Label
+      id: mdamage_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 50 20
+
+    Label
+      id: pdefense_label
+      !text: tr('P. Defense')
+      anchors.top: mdamage_label.bottom
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: pdefense_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+
+    Label
+      id: pdefense_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 50 20
+
+    Label
+      id: mdefense_label
+      !text: tr('M. Defense')
+      anchors.top: pdefense_label.bottom
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: mdefense_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+
+    Label
+      id: mdefense_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 50 20
+
+  FlatPanel 
+    id: top_right
+    anchors.top: parent.top
+    anchors.left: top_middle.right
+    height: 150
+    width: 150
+    padding: 10
+    margin-left: 5
+
+    Label
+      id: dodge_label
+      !text: tr('Dodge')
+      anchors.top: parent.top
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: dodge_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: parent.top
+      margin-left: 10
+
+    Label
+      id: dodge_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: parent.top
+      margin-left: 10
+      size: 50 20
+
+    Label
+      id: critical_label
+      !text: tr('Critical')
+      anchors.top: dodge_label.bottom
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: critical_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+
+    Label
+      id: critical_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 50 20
+
+    Label
+      id: attackspeed_label
+      !text: tr('A. Speed')
+      anchors.top: critical_label.bottom
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: attackspeed_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+
+    Label
+      id: attackspeed_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 50 20
+
+    Label
+      id: cooldown_label
+      !text: tr('Cooldown')
+      anchors.top: attackspeed_label.bottom
+      anchors.left: parent.left
+      size: 80 20
+
+    Label
+      id: cooldown_value
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+
+    Label
+      id: cooldown_add
+      !text: tr('0')
+      anchors.left: prev.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 50 20
+
+  FlatPanel 
+    id: first_panel
+    anchors.top: top.bottom
+    anchors.left: parent.left
+    height: 150
+    width: 150
+    padding: 5
+    margin-top: 5
+
+    Label
+      id: str_label
+      !text: tr('Str')
+      anchors.left: parent.left
+      anchors.top: parent.top
+      size: 42 25
+
+    AddAttrButton  
+      id: str_add
+      anchors.left: str_label.right
+      anchors.top: prev.top
+      @onClick: modules.game_status.add_str()
+
+    RmvAttrButton 
+      id: str_remove
+      anchors.left: str_add.right
+      anchors.top: prev.top
+      margin-left: 2
+      visible: false
+      @onClick: modules.game_status.remove_str()
+      
+    Label
+      id: str_points
+      anchors.top: prev.top
+      anchors.left: str_remove.right
+      margin-left: 10
+      size: 20 0
+
+    Label
+      id: str_points_to_add
+      anchors.top: prev.top
+      anchors.left: str_points.right
+      margin-left: 10
+      size: 35 0
+
+    Label
+      id: dex_label
+      !text: tr('Dex')
+      anchors.left: parent.left
+      anchors.top: str_label.bottom
+      size: 42 25
+
+    AddAttrButton
+      id: dex_add
+      anchors.top: prev.top
+      anchors.left: dex_label.right
+      @onClick: modules.game_status.add_dex()
+
+    RmvAttrButton 
+      id: dex_remove
+      anchors.top: prev.top
+      margin-left: 2
+      anchors.left: dex_add.right
+      visible: false
+      @onClick: modules.game_status.remove_dex()
+
+    Label
+      id: dex_points
+      anchors.top: prev.top
+      anchors.left: dex_remove.right
+      margin-left: 10
+      size: 20 0
+
+    Label
+      id: dex_points_to_add
+      anchors.top: prev.top
+      anchors.left: dex_points.right
+      margin-left: 10
+      size: 35 0
+
+    Label
+      id: int_label
+      !text: tr('Int')
+      anchors.left: parent.left
+      anchors.top: dex_label.bottom
+      size: 42 25
+
+    AddAttrButton
+      id: int_add
+      anchors.left: int_label.right
+      anchors.top: prev.top
+      @onClick: modules.game_status.add_int()
+
+    RmvAttrButton 
+      id: int_remove
+      anchors.left: int_add.right
+      margin-left: 2
+      anchors.top: prev.top
+      visible: false
+      @onClick: modules.game_status.remove_int()
+
+    Label
+      id: int_points
+      anchors.left: int_remove.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 20 0
+
+    Label
+      id: int_points_to_add
+      anchors.top: prev.top
+      anchors.left: int_points.right
+      margin-left: 10
+      size: 35 0
+
+    Label
+      id: con_label
+      !text: tr('Con')
+      anchors.left: parent.left
+      anchors.top: int_label.bottom
+      size: 42 25
+
+    AddAttrButton
+      id: con_add
+      anchors.left: con_label.right
+      anchors.top: prev.top
+      @onClick: modules.game_status.add_con()
+
+    RmvAttrButton 
+      id: con_remove
+      anchors.left: con_add.right
+      margin-left: 2
+      anchors.top: prev.top
+      visible: false
+      @onClick: modules.game_status.remove_con()
+
+    Label
+      id: con_points
+      anchors.left: con_remove.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 20 0
+
+    Label
+      id: con_points_to_add
+      anchors.top: prev.top
+      anchors.left: con_points.right
+      margin-left: 10
+      size: 35 0
+
+    Label
+      id: wis_label
+      !text: tr('Wis')
+      anchors.left: parent.left
+      anchors.top: con_label.bottom
+      size: 42 25
+
+    AddAttrButton
+      id: wis_add
+      anchors.left: wis_label.right
+      anchors.top: prev.top
+      @onClick: modules.game_status.add_wis()
+
+    RmvAttrButton 
+      id: wis_remove
+      anchors.left: wis_add.right
+      margin-left: 2
+      anchors.top: prev.top
+      visible: false
+      @onClick: modules.game_status.remove_wis()
+
+    Label
+      id: wis_points
+      anchors.left: wis_remove.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 20 0
+
+    Label
+      id: wis_points_to_add
+      anchors.top: prev.top
+      anchors.left: wis_points.right
+      margin-left: 10
+      size: 35 0
+
+    Label
+      id: luck_label
+      !text: tr('Luck')
+      anchors.left: parent.left
+      anchors.top: wis_label.bottom
+      size: 42 25
+
+    AddAttrButton
+      id: luck_add
+      anchors.left: wis_label.right
+      anchors.top: prev.top
+      @onClick: modules.game_status.add_luck()
+
+    RmvAttrButton 
+      id: luck_remove
+      anchors.left: luck_add.right
+      margin-left: 2
+      anchors.top: prev.top
+      visible: false
+      @onClick: modules.game_status.remove_luck()
+
+    Label
+      id: luck_points
+      anchors.left: luck_remove.right
+      anchors.top: prev.top
+      margin-left: 10
+      size: 20 0
+
+    Label
+      id: luck_points_to_add
+      anchors.top: prev.top
+      anchors.left: wis_points.right
+      margin-left: 10
+      size: 35 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

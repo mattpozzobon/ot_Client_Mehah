@@ -1585,6 +1585,9 @@ void ProtocolGame::parsePlayerStats(const InputMessagePtr& msg) const
     else
         experience = msg->getU32();
 
+    uint16_t access = msg->getU16();
+    uint16_t nameColour = msg->getU16();
+
     uint16_t level;
     if (g_game.getFeature(Otc::GameLevelU16))
         level = msg->getU16();
@@ -1616,6 +1619,17 @@ void ProtocolGame::parsePlayerStats(const InputMessagePtr& msg) const
     } else {
         mana = msg->getU16();
         maxMana = msg->getU16();
+    }
+
+    uint32_t energy;
+    uint32_t maxEnergy;
+
+    if (g_game.getFeature(Otc::GameDoubleHealth)) {
+        energy = msg->getU32();
+        maxEnergy = msg->getU32();
+    } else {
+        energy = msg->getU16();
+        maxEnergy = msg->getU16();
     }
 
     if (g_game.getClientVersion() < 1281) {
@@ -1670,11 +1684,15 @@ void ProtocolGame::parsePlayerStats(const InputMessagePtr& msg) const
     m_localPlayer->setExperience(experience);
     m_localPlayer->setLevel(level, levelPercent);
     m_localPlayer->setMana(mana, maxMana);
+    m_localPlayer->setEnergy(energy, maxEnergy);
     m_localPlayer->setStamina(stamina);
     m_localPlayer->setSoul(soul);
     m_localPlayer->setBaseSpeed(baseSpeed);
     m_localPlayer->setRegenerationTime(regeneration);
     m_localPlayer->setOfflineTrainingTime(training);
+
+    m_localPlayer->setNameColour(nameColour);
+    m_localPlayer->setAccess(access);
 }
 
 void ProtocolGame::parsePlayerSkills(const InputMessagePtr& msg) const
@@ -2560,6 +2578,9 @@ CreaturePtr ProtocolGame::getCreature(const InputMessagePtr& msg, int type) cons
             else
                 creatureType = Proto::CreatureTypeNpc;
 
+            int nameColour = msg->getU32();
+            int nameAccess = msg->getU32();
+
             uint32_t masterId = 0;
             if (g_game.getClientVersion() >= 1281 && creatureType == Proto::CreatureTypeSummonOwn) {
                 masterId = msg->getU32();
@@ -2599,7 +2620,8 @@ CreaturePtr ProtocolGame::getCreature(const InputMessagePtr& msg, int type) cons
                 creature->setId(id);
                 creature->setName(name);
                 creature->setMasterId(masterId);
-
+                //creature->setNameAccess(nameAccess);
+                //creature->setNameColour(nameColour);
                 g_map.addCreature(creature);
             }
         }

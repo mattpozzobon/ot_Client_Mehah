@@ -46,8 +46,9 @@ namespace Otc
         DrawBars = 1 << 2,
         DrawNames = 1 << 3,
         DrawManaBar = 1 << 4,
+        DrawEnergyBar = 1 << 5,
         DrawThingsAndLights = DrawThings | DrawLights,
-        DrawCreatureInfo = DrawBars | DrawNames | DrawManaBar,
+        DrawCreatureInfo = DrawBars | DrawNames | DrawManaBar | DrawEnergyBar
     };
 
     enum DatOpts : uint8_t

@@ -41,7 +41,8 @@ local defaultOptions = {
     forceEffectOptimization = false,
     drawEffectOnTop = false,
     floorViewMode = 1,
-    floorFading = 500
+    floorFading = 500,
+	displayEnergy = true,
 }
 
 local optionsWindow
@@ -184,12 +185,14 @@ function toggleDisplays()
     elseif options['displayHealth'] then
         setOption('displayHealth', false)
         setOption('displayMana', false)
+		setOption('displayEnergy', false)
     else
         if not options['displayNames'] and not options['displayHealth'] then
             setOption('displayNames', true)
         else
             setOption('displayHealth', true)
             setOption('displayMana', true)
+			setOption('displayEnergy', true)
         end
     end
 end
@@ -273,6 +276,9 @@ function setOption(key, value, force)
         gameMapPanel:setDrawHealthBars(value)
     elseif key == 'displayMana' then
         gameMapPanel:setDrawManaBar(value)
+	elseif key == 'displayEnergy' then
+		gameMapPanel:setDrawEnergyBar(value)
+		
     elseif key == 'displayText' then
         g_app.setDrawTexts(value)
     elseif key == 'dontStretchShrink' then

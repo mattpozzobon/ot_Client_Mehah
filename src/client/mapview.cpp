@@ -134,6 +134,7 @@ void MapView::drawFloor()
         if (m_drawNames) { flags |= Otc::DrawNames; }
         if (m_drawHealthBars) { flags |= Otc::DrawBars; }
         if (m_drawManaBar) { flags |= Otc::DrawManaBar; }
+        if (m_drawEnergyBar) { flags |= Otc::DrawEnergyBar; }
 
         for (int_fast8_t z = m_floorMax; z >= m_floorMin; --z) {
             const float fadeLevel = getFadeLevel(z);

@@ -79,13 +79,45 @@ PurseButton < Button
   icon-source: /images/game/slots/purse
   icon-size: 24 24
   icon-offset: 1 1
+  
+SoulLabel < GameLabel
+  id: soulLabel
+  text-align: right
+  color: white
+  font: verdana-11px-rounded
+  anchors.bottom: parent.bottom
+  anchors.right: parent.right
+  anchors.left: parent.horizontalCenter
+  margin-top: 5
+  margin-right: 3
+  on: true
+
+  $!on:
+    visible: false
+    margin-top: 0
+    height: 0
+
+CapLabel < GameLabel
+  id: capLabel
+  color: white
+  font: verdana-11px-rounded
+  anchors.bottom: parent.bottom
+  anchors.left: parent.left
+  anchors.right: parent.horizontalCenter
+  margin-top: 5
+  margin-left: 3
+  on: true
+
+  $!on:
+    visible: false
+    margin-top: 0
+    height: 0
 
 MiniWindow
   id: inventoryWindow
   !text: tr('Inventory')
   icon: /images/topbuttons/inventory
-  height: 175
-  @onOpen: modules.game_inventory.onMiniWindowOpen()
+  height: 185
   @onClose: modules.game_inventory.onMiniWindowClose()
   &save: true
 
@@ -146,3 +178,5 @@ MiniWindow
       margin-top: 3
       anchors.top: prev.bottom
       anchors.horizontalCenter: prev.horizontalCenter
+    SoulLabel
+    CapLabel

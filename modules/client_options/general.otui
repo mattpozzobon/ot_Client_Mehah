@@ -29,6 +29,10 @@ Panel
     !text: tr('Display player mana bar')
 
   OptionCheckBox
+    id: displayEnergy
+    !text: tr('Display energy bar')
+
+  OptionCheckBox
     id: displayText
     !text: tr('Display text messages')
 

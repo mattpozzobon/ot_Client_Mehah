@@ -363,6 +363,29 @@ void LocalPlayer::setMana(uint32_t mana, uint32_t maxMana)
     callLuaField("onManaChange", mana, maxMana, oldMana, oldMaxMana);
 }
 
+void LocalPlayer::setEnergy(uint32_t energy, uint32_t maxEnergy)
+{
+    if (m_energy != energy || m_maxEnergy != maxEnergy) {
+        double oldEnergy = m_energy;
+        double oldMaxEnergy = m_maxEnergy;
+        m_energy = energy;
+        m_maxEnergy = maxEnergy;
+
+        callLuaField("onEnergyChange", energy, maxEnergy, oldEnergy, oldMaxEnergy);
+    }
+}
+
+void LocalPlayer::setNameColour(uint32_t nameColour)
+{
+    m_nameColour = nameColour;
+}
+
+void LocalPlayer::setAccess(uint32_t access)
+{
+    m_access = access;
+
+}
+
 void LocalPlayer::setMagicLevel(uint8_t magicLevel, uint8_t magicLevelPercent)
 {
     if (m_magicLevel == magicLevel && m_magicLevelPercent == magicLevelPercent)
